@@ -1,0 +1,27 @@
+<div class="listing-form">
+  <%= simple_form_for @listing do |f| %>
+  <%= f.input :title %>
+  <%= f.file_field :pic_1  %>
+  <%= f.input :description %>
+  <%= f.input :address %>
+  <%= f.input :city %>
+
+  <div class="form-group">
+    <%= f.label :country %>
+    <%= f.country_select :country, priority: %w(US CA), prompt: 'Please select a country' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "province/state" %>
+    <%= render partial: 'subregion_select', locals: {parent_region: f.object.country} %>
+  </div>
+
+  <div class="price-input">
+    <%= f.input :daily_rate %>
+  </div>
+  <div class="price-input">
+    <%= f.input :monthly_rate %>
+  </div>
+  <%= f.submit class:"btn btn-primary"%>
+  <% end %>
+</div>

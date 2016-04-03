@@ -1,0 +1,72 @@
+<header id="navigation" class="navbar-fixed-top">
+  <div class="container">
+
+    <div class="navbar-header">
+      <!-- responsive nav button -->
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- /responsive nav button -->
+
+      <!-- logo -->
+      <h1 class="navbar-brand">
+          <%= link_to fa_icon("home"), root_path, class:"fa-2x"%>
+      </h1>
+      <!-- /logo -->
+
+    </div>
+    <!-- main nav -->
+    <nav class="collapse navigation navbar-collapse navbar-right" role="navigation">
+      <ul id="nav" class="nav navbar-nav">
+        <% if user_signed_in? %>
+        <li><%= link_to "New Listing", new_listing_path %></li>
+        <li><%= link_to fa_icon("user"), user_path(current_user), class:"fa-3x" %></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-left" %></li>
+        <% else %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+          <%= render "layouts/login_dp" %>
+        </li>
+        <% end %>
+      </ul>
+    </nav>
+    <!-- /main nav -->
+  </div>
+
+</div>
+</header>
+<!--
+End Fixed Navigation
+==================================== -->
+<!-- <nav class="navbar navbar-fixed-top" role="navigation">
+<div class="container-fluid">
+<%= render "layouts/navbar_header" %>
+
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav">
+<li><%= link_to fa_icon("home") , root_path, class:"fa-2x" %></li>
+<% if user_signed_in? %>
+<li><%= link_to fa_icon("plus"), new_listing_path, class:"fa-2x" %></li>
+<% else %>
+
+<% end %>
+<%#= render "layouts/navdropdown" %>
+</ul>
+<%#= render "layouts/searchdropdown" %>
+<ul class="nav navbar-nav navbar-right">
+<% if user_signed_in? %>
+<li><%= link_to fa_icon("user"), user_path(current_user),class:"fa-2x" %></li>
+<li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-left" %></li>
+<% else %>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+<%= render "layouts/login_dp" %>
+</li>
+<% end %>
+</ul>
+</div><!-- /.navbar-collapse -->
+<!-- </div><!-- /.container-fluid -->
+<!-- </nav> -->

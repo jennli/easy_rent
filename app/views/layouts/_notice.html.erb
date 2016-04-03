@@ -1,0 +1,34 @@
+<% if notice %>
+<script>
+toastr.success(
+  "<%= notice %>",
+  {
+    "closeButton": true,
+    "positionClass": "toast-top-center",
+    "timeOut": "0",
+    "extendedTimeOut": "0",
+  })</script>
+<!-- <div class="alert alert-success">
+<%= notice %>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div> -->
+<% elsif alert  %>
+<script>
+toastr.warning(
+  "<%= alert %>",
+  {
+    "closeButton": true,
+    "positionClass": "toast-top-center",
+    "timeOut": "0",
+    "extendedTimeOut": "0",
+  })</script>
+
+<!-- <div class="alert alert-danger">
+<%= alert %>
+<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div> -->
+<% end %>

@@ -1,0 +1,52 @@
+<!--
+Home Slider
+==================================== -->
+<section id="home">
+  <div id="home-carousel" class="carousel slide" data-interval="false">
+    <ol class="carousel-indicators">
+      <li data-target="#home-carousel" data-slide-to="0" class="active"></li>
+      <li data-target="#home-carousel" data-slide-to="1"></li>
+      <li data-target="#home-carousel" data-slide-to="2"></li>
+    </ol>
+    <!--/.carousel-indicators-->
+
+    <div class="carousel-inner">
+      <div id="c1" class="item active" >
+        <div class="carousel-caption">
+          <div class="animated bounceInRight">
+            <h2>Welcome to Easy Rent!<br> <%=link_to "View All", "#listing", class:"white" %></h2>
+            <p>This application is designed for travellers to connect with home owners who are taking in tenants either short term or long term.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="c2" class="item">
+        <div class="carousel-caption">
+          <div class="animated bounceInDown">
+            <h2>Free Sign Up!</h2>
+            <p>While you can browse anonymously, you can sign up for an account for free and make your reservation directly online with your credit card.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="c3" class="item">
+        <div class="carousel-caption">
+          <div class="animated bounceInUp">
+            <h2>WHY NOT MAKING YOUR FIRST RESERVATION TODAY?!</h2>
+            <p>Hopefully you already start to like this app, I will do my best to help you find your home or your vacation house!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/.carousel-inner-->
+    <nav id="nav-arrows" class="nav-arrows hidden-xs hidden-sm visible-md visible-lg">
+      <a class="sl-prev hidden-xs" href="#home-carousel" data-slide="prev">
+        <i class="fa fa-angle-left fa-3x"></i>
+      </a>
+      <a class="sl-next" href="#home-carousel" data-slide="next">
+        <i class="fa fa-angle-right fa-3x"></i>
+      </a>
+    </nav>
+
+  </div>
+</section>

@@ -1,0 +1,17 @@
+<ul id="login-dp" class="dropdown-menu">
+  <li>
+    <div class="row">
+      <div class="col-md-12">
+        <%= render "devise/sessions/form"%>
+        <br />
+        or login via
+        <div class="social-buttons">
+          <%= link_to fa_icon("facebook-square"), omniauth_authorize_path(:user, "facebook"), class:"fa-3x" %>
+        </div>
+      </div>
+      <div class="bottom text-center">
+        New User? <%= link_to "Sign up", new_user_registration_path %>
+      </div>
+    </div>
+  </li>
+</ul>

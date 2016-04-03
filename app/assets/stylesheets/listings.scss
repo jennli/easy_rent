@@ -1,0 +1,65 @@
+// Place all the styles related to the listings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.index-header{
+  margin-top: 10%;
+  height: 150px;
+  color:rgb(247, 205, 184);
+  padding: 0px 0px 6px 0px;
+  font-size: 51px;
+  line-height: 44px;
+  letter-spacing: -2px;
+  font-weight: bold;
+}
+
+#index-listings{
+  width:100%;
+  // padding:30px;
+}
+
+.show-title{
+  margin: 120px 0 50px 0;
+}
+
+.listing-active-photo{
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0.5;
+  // float:left;
+  length:100%;
+}
+
+.index-listing-image{
+  // margin:5px;
+}
+
+#listing-map{
+  clear:both;
+  float:left;
+  width:43%;
+}
+
+.clear-float{
+  clear:both;
+}
+
+
+.listing-active-photo:hover figcaption.mask {
+  bottom: 0;
+}
+
+.listing-active-photo:hover .plus {
+  top: 30%;
+}
+
+figcaption.mask h3 {
+  color: #1f2021;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+figcaption.mask span {
+  color: #0FAED9;
+}

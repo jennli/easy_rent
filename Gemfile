@@ -39,6 +39,7 @@ gem 'jquery-turbolinks'
 gem 'mixitup_rails'
 gem 'fancybox-rails'
 gem 'toastr-rails'
+gem 'jquery-ui-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :listings
+
+  resources :listings do
+    resources :reservations, only: [:create, :destroy, :edit, :update]
+  end
   devise_for :users, controllers: { registrations: 'devise_registrations',  omniauth_callbacks: "users/omniauth_callbacks" }
   get '/orders/subregion_options' => 'listings#subregion_options'
 

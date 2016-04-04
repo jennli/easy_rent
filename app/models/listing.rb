@@ -1,5 +1,6 @@
 class Listing < ActiveRecord::Base
   belongs_to :user
+  has_many :reservations, dependent: :nullify
 
   mount_uploader :pic_1, ImageUploader
 

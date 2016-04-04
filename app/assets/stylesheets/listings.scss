@@ -19,10 +19,14 @@
 }
 
 .show-title{
-  margin: 120px 0 50px 0;
+  margin-top: 18% !important;
+  text-align: center;
+  // position: relative;
+  width: 420px;
 }
 
 .listing-active-photo{
+  margin-top: 80px;
   border-radius: 5px;
   position: relative;
   overflow: hidden;
@@ -31,14 +35,16 @@
   length:100%;
 }
 
-.index-listing-image{
-  // margin:5px;
+.listing-description{
+  line-height: 25px;
+  font-weight: 300;
+  font-size: 13px;
 }
 
 #listing-map{
   clear:both;
-  float:left;
-  width:43%;
+  // float:left;
+  // width:40%;
 }
 
 .clear-float{

@@ -1,0 +1,26 @@
+<div class="reservation-form">
+  <h3>Reserve this room</h3>
+  <br />
+  <%= form_for [@listing,@reservation] do |f| %>
+
+
+  <div class="form-group">
+    <%= f.text_field :checkin_date, as: :datepicker, id:"checkin-date", class:"form-control", placeholder:"checkin-date" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_field :checkout_date, as: :datepicker, id:"checkout-date",class:"form-control", placeholder:"checkout-date"%>
+  </div>
+
+  <div class="form-group">
+    <%= f.select :rate_type,  ["#{@listing.daily_rate}/day", "#{@listing.monthly_rate}/monthly"] %>
+  </div>
+
+  <div class="form-group">
+    <h2 id="reservation-price">Total Price:</h2>
+    <h3 id="total"></h3>
+  </div>
+
+  <%= f.submit "Proceed", class: "btn btn-info"%>
+  <% end %>
+</div>

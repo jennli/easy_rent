@@ -15,6 +15,8 @@
 //= require jquery-ui
 //= require bootstrap-sprockets
 //= require bootstrap
+//= require moment
+//= require daterangepicker
 //= require fancybox
 //= require mixitup
 //= require jquery.turbolinks

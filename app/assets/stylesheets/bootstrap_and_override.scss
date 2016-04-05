@@ -7,13 +7,17 @@
   margin:10px;
 }
 
-.form-background{
-  background-image: url(bg2.jpg);
-  padding:100px 50px 50px 50px;
-  opacity:0.9;
-  border-radius: 5px;
-  z-index: 99;
+@media screen and (min-width: 800px) {
+  .form-background{
+    background-image: url(bg2.jpg);
+    padding:100px 50px 50px 50px;
+    opacity:0.9;
+    border-radius: 5px;
+    z-index: 99;
+    height:100%;
+  }
 }
+
 
 .white-form{
   background-color: white;

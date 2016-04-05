@@ -5,6 +5,7 @@ class Reservation < ActiveRecord::Base
   validates :checkin_date, presence: :true
   validates :checkout_date, presence: :true
   validate :checkout_date_is_after_checkin_date
+  validate :dates_are_in_the_future, on: :create
 
   validate :dates_are_avaialble, on: :create
 
@@ -49,21 +50,26 @@ class Reservation < ActiveRecord::Base
     reservations = listing.reservations.order(:id)
     if reservations.size > 1
       i = 0
-      while i < reservations.size - 1
+      while i < reservations.size
         r = reservations[i]
-        a = (checkin_date - r.checkout_date).to_i
-        x = (r.checkin_date - checkout_date).to_i
-        if a * x > 0
-          if (checkin_date - r.checkin_date).to_i > 0
-            errors.add(:checkin_date, "not available")
-          else
-            errors.add(:checkout_date, "not available")
+        if r.aasm_state != "canceled"
+          a = (checkin_date - r.checkout_date).to_i
+          x = (r.checkin_date - checkout_date).to_i
+          if a * x > 0
+            errors.add(:checkout_date, "or checkin date not available")
+            break
           end
-          break
         end
         i += 1
       end
     end
   end
 
+  def dates_are_in_the_future
+    if checkin_date <= Date.new
+      errors.add(:checkin_date, "is in the past..")
+    elsif checkout_date <= Date.new
+      errors.add(:checkout_date, "is in the past..")
+    end
+  end
 end

@@ -1,18 +1,18 @@
 $(document).ready(function() {
 
   if ($("#home-carousel").length == 0 ){
-    $("#navigation").css("background-color","rgb(21, 105, 128)");
-    $("#navigation").addClass("animated-nav");
+    $(".navigation").css("background-color","rgb(21, 105, 128)");
+    $(".navigation").addClass("animated-nav");
   }
 
   $(window).on("scroll",function() {
     if (($(window).scrollTop() > 400) || ($("#home-carousel").length == 0 )){
-      $("#navigation").css("background-color","rgb(21, 105, 128)");
-      $("#navigation").addClass("animated-nav");
+      $(".navigation").css("background-color","rgb(21, 105, 128)");
+      $(".navigation").addClass("animated-nav");
     }
     else if($("#home-carousel").length >0){
-      $("#navigation").css("background-color","transparent");
-      $("#navigation").removeClass("animated-nav");
+      $(".navigation").css("background-color","transparent");
+      $(".navigation").removeClass("animated-nav");
     }
   });
 

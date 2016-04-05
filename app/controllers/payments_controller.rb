@@ -8,10 +8,10 @@ class PaymentsController < ApplicationController
   def create
     service = Payments::HandlePayment.new(user: current_user, stripe_token: params[:stripe_token], reservation: @reservation)
     if service.call
-      DetermineReservationPaymentStateJob.perform_now(@reservation)
+      UpdateReservationPaymentJob.perform_now(@reservation)
       redirect_to listing_reservation_path(@reservation.listing, @reservation), notice: "Thanks for completing the payment"
     else
-      flash[:alert] = "Error happened! Please try again."
+      flash[:alert] = "#{@reservation.errors.full_messages.join(",")} error"
       render :new
     end
   end

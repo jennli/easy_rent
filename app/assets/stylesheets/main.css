@@ -132,7 +132,7 @@ body > section {
 }
 
 .btn-blue {
-  background-color: #00c7fc;
+  /*background-color: #00c7fc;*/
   color: #fff;
   font-size: 16px;
   line-height: 24px;
@@ -193,13 +193,13 @@ body > section {
 }
 
 .navigation .navbar-nav > li.current > a {
-  color: #00C7FC;
-  border-bottom: 1px solid #00C7FC;
+  /*color: #00C7FC;*/
+  /*border-bottom: 1px solid #00C7FC;*/
 }
 
 .animated-nav .navigation .navbar-nav > li.current > a {
   color: #fff;
-  border-bottom: 1px solid #fff;
+  /*border-bottom: 1px solid #fff;*/
 }
 
 .navigation .navbar-nav > li > a:focus,
@@ -318,13 +318,13 @@ body > section {
 }
 
 #nav-arrows > a.sl-next:hover {
-  background-color: #009EE3;
-  border-color: #009EE3;
-  color: #fff;
+  /*background-color: #009EE3;*/
+  /*border-color: #009EE3;*/
+  /*color: #fff;*/
 }
 
 .carousel-indicators .active {
-  background-color: #00c7fc;
+  /*background-color: #00c7fc;*/
   border: 0;
 }
 
@@ -356,7 +356,7 @@ Portfolio
 
 .project-filter ul li a:hover,
 .project-filter ul li a.active {
-  background-color: #00C7FC;
+  /*background-color: #00C7FC;*/
   color: #fff;
 }
 
@@ -435,67 +435,6 @@ About Us
 .about-us img {
   margin: 0 auto;
 }
-
-/* Counter section */
-#count {
-  background-color: #121116;
-  padding-bottom: 90px;
-}
-
-.counter-section {
-  background-color: #096c89;
-  padding: 25px 0 40px;
-}
-
-.fact-item {
-  color: #fff;
-}
-
-.fact-icon {
-  position: relative;
-  width: 50px;
-  height: 28.87px;
-  background-color: #1F2021;
-  margin: 14.43px auto;
-}
-
-.fact-icon:before,
-.fact-icon:after {
-  content: "";
-  position: absolute;
-  width: 0;
-  left: 0;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-}
-
-.fact-icon:before {
-  bottom: 100%;
-  border-bottom: 14.43px solid #1F2021;
-}
-
-.fact-icon:after {
-  top: 100%;
-  width: 0;
-  border-top: 14.43px solid #1F2021;
-}
-
-.fact-icon > i {
-  line-height: 27px;
-}
-
-.fact-item span {
-  display: block;
-  font-size: 50px;
-  line-height: 42px;
-  font-weight: 700;
-  margin: 28px 0 20px;
-}
-
-.fact-item p {
-  font-weight: 300;
-}
-
 
 /*============================================================
 About Us

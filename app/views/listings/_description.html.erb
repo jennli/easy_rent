@@ -1,11 +1,11 @@
 <div class="listing-description">
   <p><%= listing.description %></p>
   <% if listing.daily_rate %>
-  <p>Daily Rate: $<%= listing.daily_rate %></p>
+  <p>Daily Rate: $<span id="daily-rate"><%= listing.daily_rate %></span></p>
   <% end %>
 
   <% if listing.monthly_rate %>
-  <p>Monthly Rate: $<%= listing.monthly_rate %></p>
+  <p>Monthly Rate: $<span id="monthly-rate"><%= listing.monthly_rate %></span></p>
   <% end %>
   <p>City: <%= listing.city %></p>
 

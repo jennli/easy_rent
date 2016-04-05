@@ -11,9 +11,10 @@ class ReservationsController < ApplicationController
     @reservation = @listing.reservations.new reservation_params
     @reservation.total_price = @reservation.reserved_nights * @listing.daily_rate
     @reservation.user = current_user
-    # byebug
+
     if @reservation.save
-      redirect_to new_reservation_payment_path(@reservation), notice: "Reservation dates are available, please submit your payment"
+      
+      redirect_to new_reservation_payment_path(@reservation), notice: "we have reserved this listing during the days you requested, you have 30 minutes to submit your payment!"
     else
       redirect_to @listing, alert:"#{@reservation.errors.full_messages.join(',')}"
     end

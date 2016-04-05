@@ -1,4 +1,4 @@
-class DetermineReservationPaymentStateJob < ActiveJob::Base
+class UpdateReservationPaymentJob < ActiveJob::Base
   queue_as :default
 
   def perform(*args)

@@ -1,13 +1,11 @@
 <% if notice %>
 <script>
-toastr.success(
-  "<%= notice %>",
-  {
-    "closeButton": true,
-    "positionClass": "toast-top-center",
-    "timeOut": "0",
-    "extendedTimeOut": "0",
-  })</script>
+toastr.options = {
+  "closeButton": true,
+  "positionClass": "toast-bottom-right"
+};
+toastr.success("<%= notice %>");
+</script>
 <!-- <div class="alert alert-success">
 <%= notice %>
 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -16,14 +14,12 @@ toastr.success(
 </div> -->
 <% elsif alert  %>
 <script>
-toastr.warning(
-  "<%= alert %>",
-  {
-    "closeButton": true,
-    "positionClass": "toast-top-center",
-    "timeOut": "0",
-    "extendedTimeOut": "0",
-  })</script>
+toastr.options = {
+  "closeButton": true,
+  "positionClass": "toast-bottom-right"
+};
+toastr.warning("<%= alert %>");
+</script>
 
 <!-- <div class="alert alert-danger">
 <%= alert %>

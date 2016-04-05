@@ -1,16 +1,13 @@
 <div class="container">
-
   <div class="section-title show-title text-center wow fadeInDown">
     <h2><%= @listing.title %></h2>
+    <div class="listing-description text-center">
+      <%= link_to "Edit", edit_listing_path(@listing) %>
+      <%= link_to "Delete", listing_path(@listing), method: :delete,   data: {confirm: "Are you sure?"} %>
+    </div>
   </div>
-
   <div class="listing-active-photo">
-    <%= image_tag @listing.pic_1.url(:banner), class:"img-responsive center-block" %>
-
-    <a href="<%= @listing.pic_1.url(:x_large) %>" title="<%= @listing.description %>" rel="portfolio" class="fancybox"><span class="plus"></span></a>
-    <figcaption class="mask">
-      <h5>Click to view images</h5>
-    </figcaption>
+    <%= render "show_active_img" %>
   </div>
 
   <div class="clear-float"></div>
@@ -23,13 +20,12 @@
   <hr />
 
   <div class="row">
-      <div id="listing-map" class="col-md-6">
-        <%= render "map", listing: @listing %>
-      </div>
-
-      <div class="col-md-6" id="reservation-form-container">
-        <%= render "reservations/form" %>
-      </div>
+    <div id="listing-map" class="col-md-6 col-sm-12">
+      <%= render "map", listing: @listing %>
+    </div>
+    <div class="col-md-6 col-sm-12" id="reservation-form-container">
+      <%= render "reservations/form" %>
+    </div>
   </div>
 
 </div>

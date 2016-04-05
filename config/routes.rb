@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
 
   resources :listings do
-    resources :reservations, only: [:create, :destroy, :edit, :update]
+    resources :reservations, only: [:show, :create, :destroy, :edit, :update]
   end
   devise_for :users, controllers: { registrations: 'devise_registrations',  omniauth_callbacks: "users/omniauth_callbacks" }
   get '/orders/subregion_options' => 'listings#subregion_options'
 
   resources :search_listings, only:[:index, :create]
+
+  resources :reservations, only: [] do
+    resources :payments, only: [:new, :create]
+  end
 
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.

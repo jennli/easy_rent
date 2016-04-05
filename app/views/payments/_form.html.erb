@@ -1,0 +1,27 @@
+<div class="alert alert-danger hide" id="stripe-error-message">
+</div>
+
+<%= form_tag "", id: "payment-form" do %>
+<div class="form-group">
+  <%= label_tag :card_number%>
+  <%= text_field_tag :card_number, "", class:"form-control", data:{stripe: "number"} %>
+</div>
+
+<div class="form-group">
+  <%= label_tag :cvc%>
+  <%= text_field_tag :cvc, "", class: "form-control", data:{stripe: "cvc"}%>
+</div>
+
+<div class="form-group">
+  <%= label_tag :expiry_month%>
+  <%= select_month(Date.today, {add_month_numbers: true}, class:"", data:{stripe: "exp-month"}) %>
+  <%= label_tag :expiry_year%>
+  <%= select_year(Date.today, {start_year: Time.new.year, end_year: Time.now.year + 10}, class:"", data:{stripe: "exp-year"}) %>
+</div>
+
+<%= submit_tag "Submit Payment", class: "btn btn-primary" %>
+<% end %>
+
+<%= form_tag reservation_payments_path(@reservation), id:"server-form" do %>
+<%= hidden_field_tag :stripe_token %>
+<% end %>

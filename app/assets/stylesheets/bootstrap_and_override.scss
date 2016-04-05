@@ -2,19 +2,20 @@
 @import "bootstrap";
 
 .white{
+  text-align: center;
   color:beige;
   margin:10px;
 }
 
-.edit-listing-form, .new-listing-form, .devise-form{
+.form-background{
   background-image: url(bg2.jpg);
-  padding:100px 50px 10px 50px;
+  padding:100px 50px 50px 50px;
   opacity:0.9;
   border-radius: 5px;
   z-index: 99;
 }
 
-.listing-form,.sign-up-form, .sign-in-form, .registration-edit-form{
+.white-form{
   background-color: white;
   padding:50px;
   border-radius: 5px;

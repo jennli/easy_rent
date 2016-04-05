@@ -19,14 +19,14 @@
 }
 
 .show-title{
-  margin-top: 18% !important;
+  margin-top: 110px !important;
   text-align: center;
   // position: relative;
   width: 420px;
 }
 
 .listing-active-photo{
-  margin-top: 80px;
+  margin-top: 30px;
   border-radius: 5px;
   position: relative;
   overflow: hidden;
@@ -42,7 +42,7 @@
 }
 
 #listing-map{
-  clear:both;
+  // clear:both;
   // float:left;
   // width:40%;
 }
@@ -51,21 +51,6 @@
   clear:both;
 }
 
-
-.listing-active-photo:hover figcaption.mask {
-  bottom: 0;
-}
-
 .listing-active-photo:hover .plus {
-  top: 30%;
-}
-
-figcaption.mask h3 {
-  color: #1f2021;
-  font-size: 20px;
-  line-height: 28px;
-}
-
-figcaption.mask span {
-  color: #0FAED9;
+  top: 40%;
 }

@@ -1,0 +1,9 @@
+<h3><%= @reservation.user.full_name %>'s reservation for <%= link_to @reservation.listing.title, listing_path(@reservation.listing) %></h3>
+<p class="label label-default"><%= @reservation.aasm_state %></p>
+<hr />
+
+<!-- <p>Paid: <%= @reservation.total_paid %></p> -->
+<p>Checkin: <%= @reservation.checkin_date %></p>
+<p>Checkout: <%= @reservation.checkout_date %></p>
+<p>Reserved nights:<%= @reservation.reserved_nights %></p>
+<h3>Total: <%= @reservation.total_price %></h3>

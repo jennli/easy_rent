@@ -40,6 +40,11 @@ gem 'mixitup_rails'
 gem 'fancybox-rails'
 gem 'toastr-rails'
 gem 'jquery-ui-rails'
+gem 'aasm'
+gem "virtus"
+gem "redis"
+gem 'stripe'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

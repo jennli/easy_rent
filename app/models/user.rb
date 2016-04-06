@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :listings, dependent: :nullify
+  has_many :reservations, dependent: :nullify
   # has_many :reservations
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

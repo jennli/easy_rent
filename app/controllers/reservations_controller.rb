@@ -4,7 +4,6 @@ class ReservationsController < ApplicationController
   before_action :find_reservation, only: [:show, :edit, :update, :destroy]
 
   def show
-
   end
 
   def create
@@ -13,7 +12,7 @@ class ReservationsController < ApplicationController
     @reservation.user = current_user
 
     if @reservation.save
-      
+      ReservationMailer.notify_listing(@reservation).deliver_now
       redirect_to new_reservation_payment_path(@reservation), notice: "we have reserved this listing during the days you requested, you have 30 minutes to submit your payment!"
     else
       redirect_to @listing, alert:"#{@reservation.errors.full_messages.join(',')}"

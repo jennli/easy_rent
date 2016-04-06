@@ -1,0 +1,13 @@
+<div class="form-background">
+
+  <div class="white-form">
+
+    <h3 class="text-center"><%= current_user.full_name %>'s Reservations</h3>
+
+    <% @my_reservations.each do |r| %>
+    <%= render "reservations/detail", reservation: r %>
+    <hr />
+    <% end %>
+  </div>
+
+</div>

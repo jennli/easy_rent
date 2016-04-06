@@ -1,0 +1,8 @@
+Hello <%= @owner.full_name %>
+Your listing <%= @listing.title %> has a reservation request from: <%= @reservation.user.full_name %>
+
+Checkin date: <%= @reservation.checkin_date %>
+Checkout date: <%= @reservation.checkout_date %>
+
+Email: <%= @reservation.user.email %>
+We will notify you when <%= @reservation.user.first_name %> submits a payments!

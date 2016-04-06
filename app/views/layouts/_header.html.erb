@@ -23,7 +23,7 @@
       <ul id="nav" class="nav navbar-nav">
         <% if user_signed_in? %>
         <li><%= link_to "New Listing", new_listing_path %></li>
-        <li><%= link_to fa_icon("user"), user_path(current_user), class:"fa-3x" %></li>
+        <li><%= link_to fa_icon("user"), my_reservations_path, class:"fa-3x" %></li>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-left" %></li>
         <% else %>
         <li class="dropdown">

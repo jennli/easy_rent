@@ -9,6 +9,7 @@ class PaymentsController < ApplicationController
     service = Payments::HandlePayment.new(user: current_user, stripe_token: params[:stripe_token], reservation: @reservation)
     if service.call
       UpdateReservationPaymentJob.perform_now(@reservation)
+      PaymentMailerForPayer.notify_payer(@reservation).deliver_now
       redirect_to listing_reservation_path(@reservation.listing, @reservation), notice: "Thanks for completing the payment"
     else
       flash[:alert] = "#{@reservation.errors.full_messages.join(",")} error"

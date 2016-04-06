@@ -1,3 +1,4 @@
 <div class="container reservation-detail">
-<%= render "detail" %>
+  <h3><%= reservation.user.full_name %>'s reservation for<h3>
+  <%= render "detail", reservation: @reservation %>
 </div>

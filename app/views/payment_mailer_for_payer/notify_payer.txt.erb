@@ -1,0 +1,15 @@
+Hello <%= @payer.full_name %>,
+
+Your Reservation for <%= @listing.title %> is completed!
+
+Title: <%= @listing.title %>
+
+Address: <%= @listing.full_street_address %>
+
+Checkin date: <%= @reservation.checkin_date %>
+
+Checkout date: <%= @reservation.checkout_date %>
+
+Total: $<%= @reservation.total_paid %>
+
+Owner's Contact: <%= @listing.user.email %>

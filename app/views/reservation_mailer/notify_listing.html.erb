@@ -1,0 +1,11 @@
+<p>Hello <%= @owner.full_name %>,</p>
+
+<p>Your listing <%= @listing.title %> has a reservation request from: </p>
+
+<h4>Name: <%= @reservation.user.full_name %></h4>
+
+<h5>Checkin date: <%= @reservation.checkin_date %></h5>
+<h5>Checkout date: <%= @reservation.checkout_date %></h5>
+
+<p>Email: <%= @reservation.user.email %></p>
+<p>We will notify you when <%= @reservation.user.first_name %> submits a payments!</p>

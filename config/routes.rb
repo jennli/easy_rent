@@ -5,14 +5,13 @@ Rails.application.routes.draw do
   end
   devise_for :users, controllers: { registrations: 'devise_registrations',  omniauth_callbacks: "users/omniauth_callbacks" }
   get '/orders/subregion_options' => 'listings#subregion_options'
-
+  
   resources :search_listings, only:[:index, :create]
-
   resources :reservations, only: [] do
     resources :payments, only: [:new, :create]
   end
-
   resources :users
+  resources :my_reservations, only: [:index]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

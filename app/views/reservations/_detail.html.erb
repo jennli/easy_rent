@@ -3,9 +3,12 @@
     <% if reservation.aasm_state == "paid" %>
     <span class="label label-success"><%= reservation.aasm_state %></span>
     <% elsif reservation.aasm_state == "unpaid" %>
-    <span class="label label-warning"><%= link_to "incomplete", new_reservation_payment_path(reservation.id) %></span>
-
-    <span class="label label-warning"><%= link_to "cancel", cancel_reservation_path_path(reservation.listing.id, reservation.id), method: :post, data: {confirm: "Cancel this reservation?"} %></span>
+      <span class="label label-warning"><%= reservation.aasm_state %></span>
+      <br />
+      <br />
+    <span><%= link_to fa_icon("credit-card-alt", class:"fa-2x"), new_reservation_payment_path(reservation.id) %></span>
+     or
+    <span><%= link_to fa_icon("trash", class:"fa-2x"), cancel_reservation_path_path(reservation.listing.id, reservation.id), method: :post, data: {confirm: "Cancel this reservation?"} %></span>
 
     <% else %>
     <span class="label label-default"><%=reservation.aasm_state%></span>

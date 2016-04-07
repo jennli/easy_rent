@@ -7,8 +7,8 @@ class Reservation < ActiveRecord::Base
   validates :checkin_date, presence: :true
   validates :checkout_date, presence: :true
   validate :checkout_date_is_after_checkin_date
-  validate :dates_are_in_the_future, on: :create
 
+  validate :dates_are_in_the_future, on: :create
   validate :dates_are_avaialble, on: :create
 
   include AASM

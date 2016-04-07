@@ -20,12 +20,13 @@ class Listing < ActiveRecord::Base
     "#{address} #{city} #{province} #{country}"
   end
 
+  # Return the unavailable days of the listing in an array
   def reserved_dates
     days = reservations.all.map do |x|
       if x.aasm_state != "canceled"
         (x.checkin_date...x.checkout_date).map{|d| d}
       end
     end
-    days.flatten
+    days.compact.flatten
   end
 end

@@ -7,6 +7,7 @@
       <%= link_to "Delete", listing_path(@listing), method: :delete,   data: {confirm: "Are you sure?"} %>
       <%= link_to "Reservations", listing_reservations_path(@listing) %>
     </div>
+    <p>Address: <%= @listing.full_street_address %></p>
     <% end %>
   </div>
   <div class="listing-active-photo">

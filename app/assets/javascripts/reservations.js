@@ -24,21 +24,23 @@ $(document).on("ready", function(){
   $("#reservation-range").on("change", function(){
     init();
     var rate = $('#reservation-price').data("drate");
-
     var date1 = new Date($("#checkin-param").val());
     var date2 = new Date($("#checkout-param").val());
     var timeDiff = Math.abs(date2.getTime() - date1.getTime());
     var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
-    console.log(diffDays);
+    // console.log(diffDays);
+    if(diffDays > 0) {
+      $("#total").html("$" + rate * diffDays);
+      $("#reservation-price").fadeIn(700);
+    }
 
-    $("#total").html("$" + rate * diffDays);
   });
-
 
   function init(){
     getSelectedDates();
     checkReservedDates();
+    $("#reservation-price").hide();
   }
 
   function getSelectedDates(){

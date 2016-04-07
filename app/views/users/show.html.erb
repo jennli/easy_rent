@@ -4,11 +4,12 @@
     <div class="text-center"><%= image_tag(@user.image) %></div>
     <% end %>
     <h1 class="text-center"><%= @user.full_name %></h1>
-    <div class="container text-center">
+    <div class="text-center">
 
       <br />
-      <p>Email: <%= @user.email %></p>
-      <p>Last visited at: <%= @user.last_sign_in_at.strftime("%A, %b-%d-%Y ") %></p>
+      <p><%= fa_icon("envelope") %>: <%= @user.email %></p>
+      <br />
+      <p>Last visit: <%= @user.last_sign_in_at.strftime("%A, %b-%d-%Y ") %></p>
     </div>
 
     <ul class="nav nav-tabs">

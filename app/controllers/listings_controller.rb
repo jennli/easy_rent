@@ -43,6 +43,11 @@ class ListingsController < ApplicationController
     end
   end
 
+  def destroy
+    @listing.destroy
+    redirect_to root_path, notice:"successfully destroy listing '#{@listing.title}'"
+  end
+
   def reserved_dates
     respond_to do |format|
       format.html {redirect_to root_path, alert:"access denied"}

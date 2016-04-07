@@ -13,7 +13,7 @@
 
       <!-- logo -->
       <h1 class="navbar-brand">
-          <%= link_to fa_icon("home"), root_path, class:"fa-2x"%>
+        <%= link_to fa_icon("home"), root_path, class:"fa-2x"%>
       </h1>
       <!-- /logo -->
 
@@ -21,16 +21,25 @@
     <!-- main nav -->
     <nav class="collapse navigation navbar-collapse navbar-right" role="navigation">
       <ul id="nav" class="nav navbar-nav">
+
+        <li><%= link_to "View All", listings_path %></li>
         <% if user_signed_in? %>
         <li><%= link_to "New Listing", new_listing_path %></li>
-        <li><%= link_to fa_icon("user"), my_reservations_path, class:"fa-3x" %></li>
-        <li><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "navbar-left" %></li>
+
+        <%= render "layouts/navdropdown", user: current_user %>
+
         <% else %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
           <%= render "layouts/login_dp" %>
         </li>
         <% end %>
+
+        <!-- search -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-search"></i><span class="caret"></span></a>
+          <%= render "layouts/searchdropdown" %>
+        </li>
       </ul>
     </nav>
     <!-- /main nav -->

@@ -3,12 +3,18 @@ Rails.application.routes.draw do
   resources :listings do
     resources :reservations, only: [:index, :show, :create, :destroy, :edit, :update]
   end
+
+  post "/listing/:listing_id/reservations/:id" => "reservations#cancel", as: "cancel_reservation_path"
+
+
+
   devise_for :users, controllers: { registrations: 'devise_registrations',  omniauth_callbacks: "users/omniauth_callbacks" }
   get '/orders/subregion_options' => 'listings#subregion_options'
 
   get "/listings/:id/reserved_dates" => "listings#reserved_dates", as: "listing_reserved_dates_path"
 
-  resources :search_listings, only:[:index, :create]
+  resources :search_listings, only:[:show]
+
   resources :reservations, only: [] do
     resources :payments, only: [:new, :create]
   end

@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_listing
-  before_action :find_reservation, only: [:show, :edit, :update, :destroy]
+  before_action :find_reservation, only: [:show, :edit, :update, :destroy, :cancel]
 
   def index
     @reservations = @listing.reservations
@@ -16,11 +16,17 @@ class ReservationsController < ApplicationController
     @reservation.user = current_user
 
     if @reservation.save
+      # CancelIncompleteReservationJob.perform_later
       ReservationMailer.notify_listing(@reservation).deliver_now
       redirect_to new_reservation_payment_path(@reservation), notice: "we have reserved this listing during the days you requested, you have 30 minutes to submit your payment!"
     else
       redirect_to @listing, alert:"#{@reservation.errors.full_messages.join(',')}"
     end
+  end
+
+  def cancel
+    CancelIncompleteReservationJob.perform_now(@reservation)
+    redirect_to listing_reservation_path(@listing, @reservation), notice:"you have canceled this reservation"
   end
 
   private

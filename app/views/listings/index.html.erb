@@ -11,22 +11,12 @@
 
   <div id="listings" class="clearfix">
     <div id="index-listings" class="text-center">
-      <% @listings.each do |l| %>
-      <div>
-        <div>
-          <figure class="mix portfolio-item app">
-            <%= link_to (image_tag l.pic_1.url(:large), class:"img-responsive center-block index-listing-image", alt:"Portfolio Item"), listing_path(l) %>
-
-            <figcaption class="mask">
-              <h5><%=link_to l.title, listing_path(l) %></5>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-        <% end %>
+      <%= render "listings", listings: @listings %>
       </div>
     </div> <!-- end #listings -->
   </section>
+
+<%= render "layouts/footer" %>
   <!--
   End #Portfolio
   ========================== -->

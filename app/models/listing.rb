@@ -22,7 +22,9 @@ class Listing < ActiveRecord::Base
 
   def reserved_dates
     days = reservations.all.map do |x|
-      (x.checkin_date..x.checkout_date).map{|d| d}
+      if x.aasm_state != "canceled"
+        (x.checkin_date...x.checkout_date).map{|d| d}
+      end
     end
     days.flatten
   end

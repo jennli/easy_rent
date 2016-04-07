@@ -1,0 +1,3 @@
+$("#index-listings").fadeOut(400, function(){
+  $("#index-listings").html("<%= j render 'listings', listings: @listings %>").fadeIn(400);
+});

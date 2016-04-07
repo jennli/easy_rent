@@ -49,6 +49,9 @@ gem 'momentjs-rails'
 gem 'bootstrap-daterangepicker-rails'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'cancancan', '~> 1.10'
+gem 'omniauth-twitter'
+gem 'omniauth-linkedin'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

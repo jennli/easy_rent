@@ -1,0 +1,48 @@
+<div class="form-background">
+  <div class="white-form">
+    <% if @user.image %>
+    <div class="text-center"><%= image_tag(@user.image) %></div>
+    <% end %>
+    <h1 class="text-center"><%= @user.full_name %></h1>
+    <div class="container text-center">
+
+      <br />
+      <p>Email: <%= @user.email %></p>
+      <p>Last visited at: <%= @user.last_sign_in_at.strftime("%A, %b-%d-%Y ") %></p>
+    </div>
+
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" href="#reservations">Guest Account</a></li>
+      <li><a data-toggle="tab" href="#listings">Host Account</a></li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="reservations" class="tab-pane fade in active">
+        <br />
+        <h4>Recent Reservations</h4>
+        <br />
+        <ul>
+          <% @user.reservations.limit(5).order(:id).each do |r| %>
+          <li class="well">ID: <%= link_to r.displayed_id, listing_reservation_path(r.listing, r) %><span> (status: <%= r.aasm_state %></span>)</li>
+          <% end %>
+        </ul>
+        <br />
+      </div>
+
+      <div id="listings" class="tab-pane fade">
+        <br />
+        <h4>Listings</h4>
+        <br />
+        <ul>
+          <% @user.listings.limit(5).order(:id).each do |l| %>
+          <li class="well"><%= link_to l.title, listing_path(l) %></li>
+          <% end %>
+        </ul>
+        <br />
+
+      </div>
+    </div>
+
+
+  </div>
+</div>

@@ -1,0 +1,14 @@
+
+<% listings.each do |l| %>
+<div>
+  <div>
+    <figure class="portfolio-item app">
+
+      <%= link_to (image_tag l.pic_1.url(:large), class:"img-responsive center-block index-listing-image", alt:"Portfolio Item"), listing_path(l) %>
+      <figcaption class="mask">
+        <h5><%=link_to l.title, listing_path(l) %></5>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+  <% end %>

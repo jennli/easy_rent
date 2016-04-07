@@ -31,4 +31,12 @@ $(document).ready(function() {
     $(this).removeClass("active");
   });
 
+  $("#search-button").on("click", function(e){
+    // e.preventDefault();
+    var key = $("#search-field").val();
+    $.get('http://localhost:3000/search_listings/'+key+'.js', function(result) {
+
+    });
+
+  });
 });

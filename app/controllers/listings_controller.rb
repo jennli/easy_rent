@@ -4,8 +4,7 @@ class ListingsController < ApplicationController
   before_action :find_listing, except: [:index, :new, :create, :subregion_options]
 
   def index
-    @listings = Listing.all
-
+    @listings = Listing.order("id DESC")
     respond_to do |format|
       format.html {render}
       format.json {render json: @listings.to_json}
@@ -17,6 +16,7 @@ class ListingsController < ApplicationController
   end
 
   def create
+    # byebug
     @listing = Listing.new listing_params
     @listing.user = current_user
 
@@ -32,6 +32,7 @@ class ListingsController < ApplicationController
   end
 
   def edit
+    # byebug
   end
 
   def update

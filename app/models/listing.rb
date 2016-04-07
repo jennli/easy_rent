@@ -19,4 +19,11 @@ class Listing < ActiveRecord::Base
   def full_street_address
     "#{address} #{city} #{province} #{country}"
   end
+
+  def reserved_dates
+    days = reservations.all.map do |x|
+      (x.checkin_date..x.checkout_date).map{|d| d}
+    end
+    days.flatten
+  end
 end

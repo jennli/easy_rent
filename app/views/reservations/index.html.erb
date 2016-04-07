@@ -1,0 +1,12 @@
+<div class="form-background">
+  <div class="white-form">
+    <% if @reservations.size < 1 %>
+    <h2>There Are No Reservation for this listing</h2>
+    <% else %>
+    <% @reservations.each do |r| %>
+    <%= render "detail", reservation: r %>
+    <% end %>
+
+    <% end %>
+  </div>
+</div>

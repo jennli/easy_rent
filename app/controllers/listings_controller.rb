@@ -5,6 +5,11 @@ class ListingsController < ApplicationController
 
   def index
     @listings = Listing.all
+
+    respond_to do |format|
+      format.html {render}
+      format.json {render json: @listings.to_json}
+    end
   end
 
   def new
@@ -34,6 +39,13 @@ class ListingsController < ApplicationController
       redirect_to @listing, notice:"updated successfully"
     else
       redirect_to @listing, alert:"can't update"
+    end
+  end
+
+  def reserved_dates
+    respond_to do |format|
+      format.html {redirect_to root_path, alert:"access denied"}
+      format.json {render json: @listing.reserved_dates.to_json}
     end
   end
 

@@ -5,12 +5,12 @@
 
   <div class="form-group">
     <%= label_tag "", "checkin date - checkout date", for:"reservation-range" %>
-    <%= text_field_tag "daterange", "", id:"reservation-range", class: "datepicker form-control", placeholder: "checkin date - checkout date" %>
+    <%= text_field_tag "daterange", "", id:"reservation-range", class: "datepicker form-control", placeholder: "checkin date - checkout date", data: {lid: @listing.id } %>
   </div>
 
   <%= f.hidden_field :checkin_date, id:"checkin-param" %>
   <%= f.hidden_field :checkout_date, id:"checkout-param" %>
-  
+
   <%#= f.text_field :checkin_date, as: :datepicker, id:"checkin-date", class:"datepicker form-control", placeholder:"checkin-date" %>
 
   <%#= f.text_field :checkout_date, as: :datepicker, id:"checkout-date",class:"datepicker form-control", placeholder:"checkout-date"%>

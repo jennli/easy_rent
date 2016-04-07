@@ -4,11 +4,19 @@ $(document).on("ready", function(){
   //   mode: 'range',
   //   dateFormat: 'yy-MM-dd',
   // });
+  var invalid_dates;
 
   $(".datepicker").daterangepicker({
     minDate: new Date(),
     locale: {
       format: 'DDMMMYYYY'
+    },
+    isInvalidDate: function(date){
+      for(var ii = 0; ii < invalid_dates.length; ii++){
+        if (date.format('YYYY-MM-DD') == invalid_dates[ii]){
+          return true;
+        }
+      }
     }
   });
   initParams();
@@ -26,8 +34,11 @@ $(document).on("ready", function(){
       $("#checkout-param").val(checkout);
 
       console.log(checkin + " - " + checkout );
-
     }
+
+    $.get('http://localhost:3000/listings/' + $(".datepicker").data("lid") +'/reserved_dates.json', function(reserved_dates) {
+      invalid_dates = reserved_dates;
+    });
   }
 
   //

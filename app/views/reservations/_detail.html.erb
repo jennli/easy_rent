@@ -1,13 +1,23 @@
-<h4><%= link_to "reservation for #{reservation.listing.title}", listing_reservation_path(reservation.listing, reservation) %></h4>
-<br />
-<p>Status:<span class="label label-default"><%= reservation.aasm_state %></span></p>
-
 <div class="container">
+  <h4>RESERVATION ID:<%= reservation.displayed_id %></h4>
+  <br />
+  <p>User's Full Name:<%= reservation.user.full_name %></p>
+  <br />
+  <p>Status:<span class="label label-default"><%= reservation.aasm_state %></span></p>
+
+  <br />
   <p>Checkin: <%= reservation.checkin_date %></p>
+  <br />
+
   <p>Checkout: <%= reservation.checkout_date %></p>
+  <br />
+
   <p>Reserved nights:<%= reservation.reserved_nights %></p>
+  <br />
+
   <h3>Total: $<%= reservation.total_price %></h3>
+  <br />
 
 </div>
 
-<p>Click to see detail for this listing: <%= link_to reservation.listing.title, listing_path(reservation.listing) %></p>
+<p>Listing: <%= link_to reservation.listing.title, listing_path(reservation.listing) %></p>

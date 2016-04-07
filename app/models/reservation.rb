@@ -1,4 +1,6 @@
 class Reservation < ActiveRecord::Base
+  require 'digest/sha1'
+  require 'digest/md5'
   belongs_to :user
   belongs_to :listing
 
@@ -72,4 +74,9 @@ class Reservation < ActiveRecord::Base
       errors.add(:checkout_date, "is in the past..")
     end
   end
+
+  def displayed_id
+    "#{listing.title.split("")[0]}#{listing.id}-#{id}-#{user.id}"
+  end
+
 end

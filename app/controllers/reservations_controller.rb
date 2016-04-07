@@ -3,6 +3,10 @@ class ReservationsController < ApplicationController
   before_action :find_listing
   before_action :find_reservation, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @reservations = @listing.reservations
+  end
+
   def show
   end
 

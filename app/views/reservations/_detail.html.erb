@@ -1,10 +1,17 @@
 <div class="container">
-  <h4>RESERVATION ID:<%= reservation.displayed_id %></h4>
+  <h4>RESERVATION ID:<%= reservation.displayed_id %>
+    <% if reservation.aasm_state == "paid" %>
+    <span class="label label-success"><%= reservation.aasm_state %></span>
+    <% elsif reservation.aasm_state == "unpaid" %>
+    <span class="label label-warning"><%= link_to reservation.aasm_state, new_reservation_payment_path(reservation.id) %></span>
+    <% else %>
+    <span class="label label-default"><%= link_to reservation.aasm_state, new_reservation_payment_path(reservation.id) %></span>
+    <% end %>
+  </h4>
   <br />
-  <p>User's Full Name:<%= reservation.user.full_name %></p>
+  <p>Guest:<%= reservation.user.full_name %>(<%= reservation.user.email %>)</p>
   <br />
-  <p>Status:<span class="label label-default"><%= reservation.aasm_state %></span></p>
-
+  <P>Address: <%= reservation.listing.full_street_address %></P>
   <br />
   <p>Checkin: <%= reservation.checkin_date %></p>
   <br />

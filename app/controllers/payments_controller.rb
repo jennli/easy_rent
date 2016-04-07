@@ -10,7 +10,7 @@ class PaymentsController < ApplicationController
     if service.call
       UpdateReservationPaymentJob.perform_now(@reservation)
       PaymentMailerForPayer.notify_payer(@reservation).deliver_now
-      redirect_to listing_reservation_path(@reservation.listing, @reservation), notice: "Thanks for completing the payment"
+      redirect_to listing_reservation_path(@reservation.listing, @reservation), notice: "Payment completed! A confirmation email was sent to #{@reservation.user.email}"
     else
       flash[:alert] = "#{@reservation.errors.full_messages.join(",")} error"
       render :new

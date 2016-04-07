@@ -19,27 +19,33 @@ $(document).on("ready", function(){
       }
     }
   });
-  initParams();
+  init();
 
   $("#reservation-range").on("change", function(){
-    initParams();
+    init();
   });
 
-  function initParams(){
+  function init(){
+    getSelectedDates();
+    checkReservedDates();
+  }
+
+  function getSelectedDates(){
     if($("#reservation-range").val() !== ""){
       var range = $("#reservation-range").val().split("-");
       var checkin = range[0].replace(/ /g,'');
       var checkout = range[1].replace(/ /g,'');
       $("#checkin-param").val(checkin);
       $("#checkout-param").val(checkout);
-
-      console.log(checkin + " - " + checkout );
     }
+  }
 
+  function checkReservedDates(){
     $.get('http://localhost:3000/listings/' + $(".datepicker").data("lid") +'/reserved_dates.json', function(reserved_dates) {
       invalid_dates = reserved_dates;
     });
   }
+
 
   //
   // $(".datepicker").on("change", function(){
